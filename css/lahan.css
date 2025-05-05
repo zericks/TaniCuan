@@ -1,0 +1,45 @@
+:root {
+  --primary: #9dc08b;
+  --darkGreen: #40513b;
+  --land: #795548;
+  --bg2: #edf1d6;
+  --bg: #f2f4f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+.container {
+  position: relative;
+}
+
+.container header h1 {
+  margin-left: 20px;
+  color: grey;
+}
+
+
+/* Responsive */
+@media (min-widht: 769px) {
+}
+
+@media (max-widht: 768px) {
+}
+
+@media (max-width: 360px) {
+  main .sesi-container .add-sesi {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,317 @@
+:root {
+  --primary: #9dc08b;
+  --darkGreen: #40513b;
+  --land: #795548;
+  --bg2: #edf1d6;
+  --bg: #f2f4f5;
+}
+
+/* Import Font */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: auto;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* overflow:; */
+  background-color: var(--bg);
+}
+
+.container {
+  position: relative;
+}
+
+#ringkasan {
+  position: relative;
+}
+
+.container header h1 {
+  margin-left: 20px;
+  color: grey;
+}
+
+/* Gaya untuk Filter Riwayat */
+#filterRiwayat {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 15px;
+  background: #b1b1b1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+#filterRiwayat label {
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+#filterRiwayat select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+#filterRiwayat select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#hapusRiwayat {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: auto;
+}
+
+#hapusRiwayat:hover {
+  background-color: #720f19;
+}
+
+#ringkasan #pesanKosong {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: gray;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Riwayat Item */
+.riwayat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.riwayat-item:hover {
+  background-color: #eee;
+}
+
+.details h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.details p {
+  font-size: 14px;
+  color: #555;
+}
+
+.selisih {
+  font-weight: 600;
+  color: #333;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.status.sukses {
+  background: #28a745;
+}
+
+.status.gagal {
+  background: #dc3545;
+}
+
+/* Detail Riwayat */
+/*#backBtn {
+  background: red;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  margin-right: 5px;
+}
+ #detailRiwayat {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#detailRiwayat h2 {
+  text-align: center;
+  color: var(--darkGreen);
+  margin-bottom: 15px;
+}
+
+#backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--darkGreen);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#backBtn:hover {
+  background: var(--primary);
+} */
+
+.sesi-detail {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: auto;
+}
+
+.sesi-detail .back-btn {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: white;
+  background-color: var(--darkGreen);
+  width: 70px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.sesi-detail .back-btn:hover {
+  background-color: grey;
+}
+
+.sesi-detail h2 {
+  text-align: center;
+  color: var(--darkGreen);
+  margin-bottom: 15px;
+}
+
+.sesi-detail .left,
+.sesi-detail .right {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.sesi-detail .left h3,
+.sesi-detail .right h3 {
+  color: var(--darkGreen);
+  margin-bottom: 10px;
+}
+
+.sesi-detail p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.tabel-container {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+}
+
+#tabelKeuanganRiwayat {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tabelKeuanganRiwayat th,
+#tabelKeuanganRiwayat td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+#tabelKeuanganRiwayat thead {
+  position: sticky;
+  top: 0;
+  background: #2d4822;
+  color: white;
+  z-index: 10;
+}
+
+.sesi-detail .right button {
+  background: var(--darkGreen);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sesi-detail .right button:hover {
+  background: darkgreen;
+}
+
+/* Ringkasan Keuangan */
+.keuangan-summary {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.keuangan-summary p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.keuangan-summary span {
+  font-weight: bold;
+  color: #333;
+}
+
+
+/* Responsive */
+@media (min-widht: 769px) {
+}
+
+@media (max-widht: 768px) {
+}
+
+@media (max-width: 360px) {
+  .container main #yearFilter {
+    font-size: 12px;
+  }
+}

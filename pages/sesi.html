@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sesi Tanam</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Box Icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="../css/sesi.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>SESSION</h1>
+        <br />
+      </header>
+      <main>
+        <!-- Tampilan 1 : detail tanaman yang ditanam-->
+        <section class="sesi-container">
+          <button onclick="tambahSesi()" class="add-sesi">
+            <i class="bx bxs-add-to-queue"></i> New
+          </button>
+          <!-- list sesi yang berlangsung -->
+          <div class="sessions">
+            <!-- Data sesi akan ditambahkan secara dinamis sebagai kartu -->
+             
+            
+          </div>
+        </section>
+
+        <!-- Form Tambah Sesi -->
+        <div class="add-sesi-wrapper" style="display: none">
+          <div class="add-sesi-header">
+            <div class="title">Add Session</div>
+            <i class="fas fa-times close"></i>
+          </div>
+          <div class="add-sesi-body">
+            <div class="add-sesi-input">
+              <label for="">Nama tanaman:</label>
+              <input
+                type="text"
+                placeholder="Session Name"
+                class="sesi-name"
+                required
+              />
+            </div>
+            <div class="add-sesi-input">
+              <label for="">Jenis tanaman:</label>
+              <input
+                type="text"
+                placeholder="Plant type"
+                class="sesi-plant-type"
+                required
+              />
+            </div>
+            <div class="add-sesi-input">
+              <!-- <input type="date" class="sesi-start-date" required /> -->
+              <label for="">Tanggal mulai:</label>
+              <input
+                type="date"
+                placeholder="Session Time Start"
+                class="sesi-start-date"
+                required
+              />
+            </div>
+            <div class="add-sesi-input">
+              <!-- <input type="date" class="sesi-estimation" required /> -->
+              <label for="">Estimasi:</label>
+              <input
+                type="date"
+                placeholder="Session Estimation"
+                class="sesi-estimation"
+                required
+              />
+            </div>
+          </div>
+          <div class="add-sesi-footer">
+            <button class="add-sesi-btn">Save</button>
+            <button class="cancel-sesi-btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Tampilan 2 : daftar transaksi selama sesi berlangsung(keluar masik)-->
+        <section id="detailSesi" class="sesi-detail" style="display: none">
+          <!-- Tombol Back di pojok kiri atas -->
+          <button class="back-btn" onclick="kembaliKeSesi()">Back</button>
+          <h2>Detail Session</h2>
+          <!-- <div class="detail-content"> -->
+          <!-- Informasi Tanaman (Dapat Diedit Langsung) -->
+          <!-- <div class="info-wrapper"> -->
+          <section class="left">
+            <h3>Informasi Tanaman</h3>
+            <p>
+              <strong>Nama:</strong>
+              <span
+                id="detailNamaTanaman"
+                class="editable"
+                contenteditable="false"
+              ></span>
+            </p>
+            <p>
+              <strong>Jenis:</strong>
+              <span
+                id="detailJenisTanaman"
+                class="editable"
+                contenteditable="false"
+              ></span>
+            </p>
+            <p>
+              <strong>Tanggal Tanam:</strong>
+              <span
+                id="detailTanggalTanam"
+                class="editable"
+                contenteditable="false"
+              ></span>
+            </p>
+            <p>
+              <strong>Estimasi Panen:</strong>
+              <span
+                id="detailEstimasiPanen"
+                class="editable"
+                contenteditable="false"
+              ></span>
+            </p>
+          </section>
+          <!-- </div> -->
+
+          <!-- Tombol tambahan: Edit, Simpan, Akhiri Sesi, dan Sesi Gagal -->
+          <div class="detail-session-buttons">
+            <button class="edit-btn" onclick="toggleEdit(true)">Edit</button>
+            <button
+              class="save-btn"
+              onclick="toggleEdit(false)"
+              style="display: none"
+            >
+              Simpan
+            </button>
+            <button class="fail-session-btn" onclick="sesiGagal()">
+              Sesi Gagal
+            </button>
+          </div>
+
+          <!-- Form Alasan Sesi Gagal -->
+          <div
+            id="formAlasanGagal"
+            class="form-container"
+            style="display: none; margin-top: 1rem"
+          >
+            <h2>Alasan Sesi Gagal</h2>
+            <!-- <textarea
+              id="alasanGagalText"
+              rows="4"
+              placeholder="Tuliskan alasan sesi ini dianggap gagal..."
+              required
+            ></textarea>
+            <small
+              id="kataCounter"
+              style="display: block; text-align: right; color: #ccc"
+              >0/200</small
+            > -->
+            <textarea
+              id="alasanGagalText"
+              maxlength="200"
+              placeholder="Berikan alasan membatalkan sesi"
+            ></textarea>
+            <small
+              id="charCounter"
+              style="display: block; text-align: right; color: #ccc"
+              >0/200</small
+            >
+
+            <div class="form-buttons">
+              <button onclick="kirimAlasanGagal()">Kirim</button>
+              <button onclick="batalAlasanGagal()">Batal</button>
+            </div>
+          </div>
+
+          <!-- ringkasan keuangan sesi -->
+          <!-- <section class="ringkasanKeuangan">
+            <div class="keuangan-summary">
+              <h3>Ringkasan Keuangan</h3>
+              <p>
+                <strong>Total Pemasukan:</strong>
+                <span id="totalPemasukan">0</span>
+              </p>
+              <p>
+                <strong>Total Pengeluaran:</strong>
+                <span id="totalPengeluaran">0</span>
+              </p>
+              <p>
+                <strong>Selisih (Keuntungan/Kerugian):</strong>
+                <span id="selisihKeuangan">0</span>
+              </p>
+            </div>
+          </section> -->
+
+          <section class="right">
+            <h3>Keuangan</h3>
+            <button onclick="tambahTransaksi()">Tambah Transaksi</button>
+            <p
+              id="pesanKeuanganKosong"
+              style="text-align: center; display: none"
+            >
+              Belum ada data keuangan
+            </p>
+            <div class="tabel-container" style="display: block">
+              <table id="tabelKeuangan">
+                <thead>
+                  <tr>
+                    <th class="kolom-nama">Nama Transaksi</th>
+                    <th class="kolom-tanggal">Tanggal</th>
+                    <th class="kolom-tipe-transaksi">Tipe Transaksi</th>
+                    <th class="kolom-jumlah">Jumlah</th>
+                    <th class="kolom-aksi">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Penjualan Cherry Tomato</td>
+                    <td>20-06-2024</td>
+                    <td>Pemasukan</td>
+                    <td>500000</td>
+                    <td>
+                      <button class="detail-transaksi" onclick="detailTransaksi()">Detail</button>
+                      <button class="hapus-transaksi" onclick="hapusTransaksi()">Hapus</button>
+                    </td>
+                  </tr>
+
+                  <!-- Data keuangan akan ditambahkan secara dinamis -->
+                  <!-- contoh data start-->
+                  <tr>
+                    <td>pupuk</td>
+                    <td>2024-03-20</td>
+                    <td>Pengeluaran</td>
+                    <td>500000</td>
+                    <td>
+                      <button class="detail-transaksi" onclick="detailTransaksi()">Detail</button>
+                      <button class="hapus-transaksi" onclick="hapusTransaksi()">Hapus</button>
+                    </td>
+                  </tr>
+                  <!-- contoh data end-->
+                  <!-- contoh data start-->
+                  <tr>
+                    <td>Cangkul</td>
+                    <td>2024-03-20</td>
+                    <td>Pengeluaran</td>
+                    <td>500000</td>
+                    <td>
+                      <button class="detail-transaksi" onclick="detailTransaksi()">Detail</button>
+                      <button class="hapus-transaksi" onclick="hapusTransaksi()">Hapus</button>
+                    </td>
+                  </tr>
+                  <!-- contoh data end-->
+                  <!-- contoh data start-->
+                  <tr>
+                    <td>Traktor</td>
+                    <td>2024-03-20</td>
+                    <td>Pemasukan</td>
+                    <td>500000</td>
+                    <td>
+                      <button class="detail-transaksi" onclick="detailTransaksi()">Detail</button>
+                      <button class="hapus-transaksi" onclick="hapusTransaksi()">Hapus</button>
+                    </td>
+                  </tr>
+                  <!-- contoh data end-->
+                  <!-- contoh data start-->
+                  <tr>
+                    <td>Bibit</td>
+                    <td>2024-03-20</td>
+                    <td>Pengeluaran</td>
+                    <td>500000</td>
+                    <td>
+                      <button class="detail-transaksi" onclick="detailTransaksi()">Detail</button>
+                      <button class="hapus-transaksi" onclick="hapusTransaksi()">Hapus</button>
+                    </td>
+                  </tr>
+                  <!-- contoh data end-->
+                  <!-- contoh data start-->
+                  <tr>
+                    <td>Pengeluaran untuk pupuk</td>
+                    <td>2024-03-20</td>
+                    <td>Pengeluaran</td>
+                    <td>500000</td>
+                    <td>
+                      <button class="detail-transaksi" onclick="detailTransaksi()">Detail</button>
+                      <button class="hapus-transaksi" onclick="hapusTransaksi()">Hapus</button>
+                    </td>
+                  </tr>
+                  <!-- contoh data end-->
+                </tbody>
+              </table>
+            </div>
+            <!-- <h3>Total Keuangan: <span id="totalKeuangan">0</span></h3> -->
+            <br />
+            <h3>Ringkasan Keuangan</h3>
+            <div class="keuangan-summary">
+              <p>
+                <strong>Total Pemasukan:</strong>
+                <span id="totalPemasukan">0</span>
+              </p>
+              <p>
+                <strong>Total Pengeluaran:</strong>
+                <span id="totalPengeluaran">0</span>
+              </p>
+              <p>
+                <strong>Selisih (Keuntungan/Kerugian):</strong>
+                <span id="selisihKeuangan">0</span>
+              </p>
+            </div>
+          </section>
+          <button class="end-session-btn" onclick="akhiriSesi()">
+            Akhiri Sesi
+          </button>
+          <!-- </div> -->
+        </section>
+
+        <!-- Form Tambah Transaksi -->
+        <section
+          id="formTransaksi"
+          class="form-container"
+          style="display: none"
+        >
+          <h2>Tambah Transaksi</h2>
+          <form id="formTransaksiData" onsubmit="return simpanTransaksi(sesi)">
+            <label for="tipeTransaksi">Tipe Transaksi:</label>
+            <select id="tipeTransaksi" onchange="ubahFormTransaksi()">
+              <option value="pengeluaran">Pengeluaran</option>
+              <option value="pemasukan">Pemasukan</option>
+            </select>
+
+            <!-- Form pengeluaran -->
+            <div id="formPengeluaran">
+              <label for="jenisPengeluaran">Jenis Pengeluaran:</label>
+              <select id="jenisPengeluaran" onchange="tampilkanInputBarang()">
+                <option value="jasa">Jasa</option>
+                <option value="barang">Barang</option>
+              </select>
+
+              <label for="namaPengeluaran">Nama Pengeluaran:</label>
+              <input type="text" id="namaPengeluaran" required />
+
+              <label for="deskripsiPengeluaran">Deskripsi:</label>
+              <input type="text" id="deskripsiPengeluaran" />
+
+              <label for="tanggalPengeluaran">Tanggal:</label>
+              <input type="date" id="tanggalPengeluaran" required />
+
+              <!-- Tambahan input jika barang yang dipilih -->
+              <div id="inputBarang" style="display: none">
+                <label for="jumlahBarang">Jumlah Barang:</label>
+                <input
+                  type="number"
+                  id="jumlahBarang"
+                  oninput="hitungTotal()"
+                />
+
+                <label for="hargaSatuan">Harga Satuan:</label>
+                <input type="number" id="hargaSatuan" oninput="hitungTotal()" />
+              </div>
+
+              <label for="jumlahPengeluaran">Jumlah:</label>
+              <input
+                type="text"
+                id="jumlahPengeluaran"
+                oninput="formatRupiah(this)"
+                required
+              />
+            </div>
+
+            <!-- Form Pemasukan -->
+            <div id="formPemasukan" style="display: none">
+              <label for="namaTanamanPemasukan">Nama Tanaman:</label>
+              <input type="text" id="namaTanamanPemasukan" readonly />
+
+              <label for="lokasiPenjualan">Lokasi Penjualan:</label>
+              <input type="text" id="lokasiPenjualan" required />
+
+              <label for="hargaPerKilo">Harga per Kilo:</label>
+              <input
+                type="text"
+                id="hargaPerKilo"
+                oninput="formatRupiah(this)"
+                required
+              />
+
+              <label for="beratPanen">Berat Hasil Panen (kg):</label>
+              <input type="number" id="beratPanen" required />
+
+              <label for="tanggalJual">Tanggal Jual:</label>
+              <input type="date" id="tanggalJual" required />
+
+              <label for="jumlahPemasukan">Total Pemasukan:</label>
+              <input
+                type="text"
+                id="jumlahPemasukan"
+                oninput="formatRupiah(this)"
+                readonly
+              />
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit">Simpan</button>
+              <button type="button" onclick="tutupFormTransaksi()">
+                Batal
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Form Detail Transaksi -->
+        <section
+          id="formDetailTransaksi"
+          class="form-container"
+          style="display: none"
+        >
+          <h2>Detail Transaksi</h2>
+          <form>
+            <label for="detailTipeTransaksi">Tipe Transaksi:</label>
+            <input type="text" id="detailTipeTransaksi" readonly />
+
+            <label for="detailNamaTransaksi">Nama Transaksi:</label>
+            <input type="text" id="detailNamaTransaksi" readonly />
+
+            <label for="detailDeskripsi">Deskripsi:</label>
+            <input type="text" id="detailDeskripsi" readonly />
+
+            <label for="detailTanggal">Tanggal:</label>
+            <input type="text" id="detailTanggal" readonly />
+
+            <label for="detailJumlah">Jumlah:</label>
+            <input type="text" id="detailJumlah" readonly />
+
+            <div class="form-buttons">
+              <button type="button" onclick="tutupFormDetail()">Tutup</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- My Javascript -->
+    <script src="../js/sesi.js"></script>
+  </body>
+</html>

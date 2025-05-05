@@ -1,0 +1,585 @@
+:root {
+  --primary: #9dc08b;
+  --darkGreen: #40513b;
+  --land: #795548;
+  --bg2: #edf1d6;
+  --bg: #f2f4f5;
+  --red: #d9544d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: auto;
+  background-color: var(--bg);
+}
+
+.container {
+  position: relative;
+}
+
+.sessions {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom sejajar */
+  gap: 10px;
+}
+
+.session-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  font-size: 15px;
+  flex: 1 1 calc(33.33% - 20px); /* Lebar 3 kartu dalam satu baris */
+  max-width: 300px; /* Maksimal lebar kartu */
+  max-height: 250px;
+  margin: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.session-card h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.session-card p {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
+}
+
+.session-card .session-status {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.session-card .session-footer .view-details-btn {
+  background-color: var(--darkGreen);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.session-card .session-footer .view-details-btn:hover {
+  text-decoration: underline;
+}
+
+.container header h1 {
+  margin-left: 20px;
+  color: grey;
+  /* font-size: 18px; */
+  /* padding: 20px 30px; */
+}
+
+main .sesi-container .add-sesi {
+  padding: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background: var(--darkGreen);
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  /* border-color: #40513b */
+  cursor: pointer;
+}
+
+main .sesi-container .add-sesi:hover {
+  text-decoration: underline;
+}
+
+/* Form Tambah Sesi Styling Start*/
+.add-sesi-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+.add-sesi-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.add-sesi-header .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--darkGreen);
+}
+
+.add-sesi-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.add-sesi-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.add-sesi-input label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.add-sesi-input input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.add-sesi-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.add-sesi-btn,
+.cancel-sesi-btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-sesi-btn {
+  background: var(--darkGreen);
+  color: white;
+}
+
+.cancel-sesi-btn {
+  background: grey;
+  color: white;
+}
+
+.cancel-sesi-btn:hover {
+  background-color: var(--red);
+}
+.add-sesi-btn:hover {
+  background-color: var(--primary);
+}
+/* Form Tambah Sesi Styling End*/
+
+/* Detail Sesi Styling Start*/
+.sesi-detail {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  /* max-width: 800px; */
+  margin: auto;
+}
+
+.sesi-detail .back-btn {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: white;
+  background-color: var(--darkGreen);
+  width: 70px;
+  cursor: pointer;
+}
+
+.sesi-detail .back-btn:hover {
+  background-color: grey;
+}
+
+.sesi-detail h2 {
+  text-align: center;
+  color: var(--darkGreen);
+  margin-bottom: 15px;
+}
+
+.sesi-detail .left,
+.sesi-detail .right {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.sesi-detail .left h3,
+.sesi-detail .right h3 {
+  color: var(--darkGreen);
+  margin-bottom: 10px;
+}
+
+.sesi-detail p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.tabel-container {
+  max-height: 400px; /* Sesuaikan tinggi maksimal */
+  overflow-y: auto; /* Membuat scroll vertikal jika tabel terlalu panjang */
+  overflow-x: auto; /* Membuat scroll vertikal jika tabel terlalu panjang */
+  border: 1px solid #ccc; /* Opsional: untuk batas */
+}
+
+#tabelKeuangan {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tabelKeuangan th,
+#tabelKeuangan td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+#tabelKeuangan .kolom-nama{
+  width: 250px;
+}
+
+#tabelKeuangan thead {
+  position: sticky;
+  top: 0;
+  background: #2d4822; /* Warna header */
+  color: white;
+  z-index: 10;
+}
+
+.sesi-detail .right button {
+  background: var(--darkGreen);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+}
+.sesi-detail .right .detail-transaksi {
+  background: var(--darkGreen);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+}
+.sesi-detail .right .hapus-transaksi {
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sesi-detail .right button:hover {
+  background: grey;
+}
+/* Styling untuk tombol tambahan di Detail Session */
+.detail-session-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.detail-session-buttons button {
+  margin-top: 0;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #f17714;
+  color: white;
+}
+.edit-btn:hover {
+  background: #f4a261;
+}
+
+.fail-session-btn {
+  background: #e63946;
+  color: white;
+}
+.fail-session-btn:hover {
+  background: #f15865;
+}
+
+.save-btn {
+  background: #4caf50;
+  color: white;
+}
+.save-btn:hover {
+  background: #6dd670;
+}
+
+.end-session-btn {
+  background: #2a9d8f;
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+}
+.end-session-btn:hover {
+  background: #42e3d0;
+}
+
+/* style form alasan gagal sesi */
+#formAlasanGagal {
+  background: #fff8e1;
+  border: 2px solid #fbc02d;
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#formAlasanGagal h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#formAlasanGagal textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  resize: vertical;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+#formAlasanGagal .form-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+#formAlasanGagal button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#formAlasanGagal button:nth-child(2) {
+  background-color: #e53935;
+}
+
+/* Styling untuk bagian yang bisa diedit */
+.editable {
+  display: inline-block;
+  padding: 4px;
+  min-width: 100px;
+  border-bottom: 1px dashed transparent;
+}
+
+.editable[contenteditable="true"] {
+  border-bottom: 1px dashed #333;
+  background-color: #f9f9f9;
+}
+
+/* Styling untuk Ringkasan Keuangan */
+.keuangan-summary {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.keuangan-summary p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.keuangan-summary span {
+  font-weight: bold;
+  color: #333;
+}
+/* Detail Sesi Styling End*/
+
+/* Form Tambah Transaksi Styling start */
+/* Styling untuk form container */
+.form-container {
+  /* max-width: 600px; */
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  margin: 2px auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk judul form */
+.form-container h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Styling untuk form */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+.form-container label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Input styling */
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+/* Efek saat input aktif */
+.form-container input:focus,
+.form-container select:focus {
+  border: 1px solid #28a745;
+}
+
+/* Styling untuk bagian barang */
+#inputBarang {
+  display: none;
+}
+
+/* Tombol simpan dan batal */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-buttons button {
+  width: 48%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Tombol Simpan */
+.form-buttons button[type="submit"] {
+  background: #28a745;
+  color: white;
+}
+
+.form-buttons button[type="submit"]:hover {
+  background: #218838;
+}
+
+/* Tombol Batal */
+.form-buttons button[type="button"] {
+  background: #dc3545;
+  color: white;
+}
+
+.form-buttons button[type="button"]:hover {
+  background: #c82333;
+}
+/* Form Tambah Transaksi Styling end */
+
+/* Responsive */
+@media (min-width: 769px) {
+}
+
+@media (max-width: 1245px) {
+  .sessions {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .sessions {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk tablet */
+  }
+}
+
+@media (max-width: 627px) {
+  .sessions {
+    grid-template-columns: 1fr; /* 1 kolom untuk HP */
+  }
+}
+
+@media (max-width: 480px) {
+  main .sesi-container .add-sesi {
+    font-size: 12px;
+  }
+  .sessions {
+    grid-template-columns: 1fr; /* 1 kolom untuk HP */
+  }
+  .form-container {
+    max-width: 100%;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .form-buttons button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  #tabelKeuangan {
+    min-width: 800px;
+  }
+}

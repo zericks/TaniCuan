@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Box Icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <!-- <header>
+      <div class="header-right">
+        <div class="greeting-text">
+          <span class="hello">Hai,</span><br />
+          <span class="username">Nama</span>
+        </div>
+      </div>
+
+      <h1>DASHBOARD</h1>
+      <br />
+    </header> -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <h1>DASHBOARD</h1>
+        <br />
+      </div>
+      <div class="header-right">
+        <div class="greeting-text">
+          <span class="hello">Hai,</span><br />
+          <span class="username">Zerick Syahputra</span>
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+      <!-- Dropdown Tahun -->
+      <div class="year-filter">
+        <label for="filterYear">Pilih Tahun:</label>
+        <select id="filterYear" onchange="filterByYear()">
+          <option value="all">Semua</option>
+          <!-- Opsi tahun akan di-generate lewat JS -->
+        </select>
+      </div>
+      <div class="dashboard-container">
+        <!-- Kartu-kartu -->
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>Total Sesi</h3>
+            <p id="totalSesi">10</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Sesi Aktif</h3>
+            <p id="sesiAktif">0</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Sesi Berhasil</h3>
+            <p id="sesiBerhasil">0</p>
+          </div>
+          <div class="dashboard-card">
+            <h3>Sesi Gagal</h3>
+            <p id="sesiGagal">0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ringkasan dan pemasukan -->
+      <div class="finance-summary-container">
+        <div class="finance-header">
+          <h2>Catatan Keuangan</h2>
+          <!-- <a href="#" class="toggle-link">Sembunyikan 👁️</a> -->
+          <div class="toggle-privacy" onclick="fnView()">
+            <span id="toggleLabel">Sembunyikan</span>
+            <i data-feather="eye-off" id="eyeIcon"></i>
+          </div>
+          
+        </div>
+        <p class="finance-date">1 Apr 2025 - 30 Apr 2025</p>
+
+        <div class="finance-cards">
+          <div class="finance-card income-card">
+            <span class="label">Pemasukan</span>
+            <p class="amount positive toggleable">Rp350.000</p>
+            <div class="icon-arrow in">
+              <i class='bx bx-left-down-arrow-circle' ></i>
+            </div>
+          </div>
+          <div class="finance-card expense-card">
+            <span class="label">Pengeluaran</span>
+            <p class="amount negative toggleable">-Rp352.080</p>
+            <div class="icon-arrow out">
+              <i class='bx bx-right-top-arrow-circle' ></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="selisih-info">
+          <span>Selisih</span>
+          <p class="selisih negative toggleable">-Rp2.080</p>
+        </div>
+
+        <!-- <div class="actions">
+          <a href="#" class="detail-link">Lihat Detail →</a>
+        </div> -->
+      </div>
+
+      <!-- Chart -->
+      <!-- <div class="chart-container">
+        <h2>Harga Jual per Kg per Sesi</h2>
+        <canvas id="hargaChart"></canvas>
+      </div> -->
+    </main>
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- My Javascript -->
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

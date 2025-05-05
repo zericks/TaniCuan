@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>Manajemen Keuangan Pertanian</title> -->
+    <title>TaniCuan</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Box Icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- Navbar untuk Mobile -->
+    <nav class="mobile-navbar">
+      <i class="bx bx-menu" id="mobileMenu"></i>
+      <header>Tani<span>Cuan</span></header>
+      <i class="bx bx-log-out" id="mobileLogout"></i>
+    </nav>
+
+    <!-- Sidebar start -->
+    <aside class="sidebar active">
+      <div class="logo-content">
+        <div class="logo">
+          <i class="bx bxs-leaf"></i>
+          <span class="logo-name">TaniCuan</span>
+        </div>
+        <i class="bx bx-menu" id="btnMenu"></i>
+      </div>
+      <nav>
+        <ul class="nav-list">
+          <li>
+            <a href="#" data-page="dashboard">
+              <i class="bx bx-grid-alt"></i>
+              <span class="link-name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+          </li>
+          <li>
+            <a href="#" data-page="sesi"
+              ><i class="bx bx-leaf"></i>
+              <span class="link-name">Session</span></a
+            >
+            <span class="tooltip">Session</span>
+          </li>
+          <li>
+            <a href="#" data-page="lahan"
+              ><i class="bx bx-map"></i><span class="link-name">Land</span></a
+            >
+            <span class="tooltip">Land</span>
+          </li>
+          <li>
+            <a href="#" data-page="kalender"
+              ><i class="bx bx-calendar"></i
+              ><span class="link-name">Calendar</span></a
+            >
+            <span class="tooltip">Calendar</span>
+          </li>
+          <li>
+            <a href="#" data-page="riwayat"
+              ><i class="bx bx-history"></i
+              ><span class="link-name">History</span></a
+            >
+            <span class="tooltip">History</span>
+          </li>
+          <li>
+            <a href="#" data-page="profile"
+              ><i class="bx bx-user"></i
+              ><span class="link-name">Profile</span></a
+            >
+            <span class="tooltip">Profile</span>
+          </li>
+        </ul>
+      </nav>
+      <!-- <div class="nav-list-footer">
+        <div class="logout">
+          <a href="login.html">
+            <i class="bx bx-log-out" id="logout"></i>
+          </a>
+          <span class="tooltip">Logout</span>
+        </div>
+      </div> -->
+    </aside>
+    <!-- Sidebar end -->
+
+    <!-- Tempat untuk main content -->
+    <main id="main-content">
+      <!-- main content dari js -->
+    </main>
+
+    <!-- My Javascript -->
+    <script src="js/index.js"></script>
+  </body>
+</html>

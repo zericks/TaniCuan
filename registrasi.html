@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrasi</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="css/registrasi.css" />
+  </head>
+
+  <body>
+    <div class="registrasi-page">
+      <div class="registrasi-box">
+        <form action="registrasi.html" method="POST">
+          <header>Registrasi</header>
+          <div class="input-box">
+            <span class="icon"><i data-feather="user"></i></span>
+            <input type="text" name="nama" required />
+            <label for="">Nama Lengkap</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i data-feather="phone"></i></span>
+            <!-- <input type="text" required /> -->
+            <input
+              type="text"
+              name="no_hp"
+              id="nomorHp"
+              required
+              inputmode="numeric"
+              pattern="[0-9]*"
+              maxlength="17"
+            />
+            <label for="">Nomor Hp</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i data-feather="user"></i></span>
+            <input type="text"  name="username" required />
+            <label for="">Username</label>
+          </div>
+          <div class="input-box">
+            <button
+              type="button"
+              class="btnView"
+              title="lihat password"
+              id="btnView"
+              onclick="fnView()"
+            >
+              <i data-feather="eye-off"></i>
+            </button>
+            <input type="password" id="password" name="password" required />
+            <label for="">Password</label>
+          </div>
+          <div class="input-box">
+            <button
+              type="button"
+              class="btnViewPin"
+              title="lihat pin"
+              id="btnViewPin"
+              onclick="fnViewPin()"
+            >
+              <i data-feather="eye-off"></i>
+            </button>
+            <input
+              type="password"
+              id="pin"
+              name="pin"
+              required
+              maxlength="6"
+              inputmode="numeric"
+              pattern="\d{6}"
+            />
+            <label for="">PIN</label>
+          </div>
+          <small class="pin-note">PIN harus terdiri dari 6 digit angka.</small>
+          <button
+            type="submit"
+            class="btnRegistrasi"
+            
+          >
+            Registrasi
+          </button>
+          <div class="login-link">
+            <p>Sudah punya akun? <a href="login.html">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- My Javascript -->
+    <script src="js/registrasi.js"></script>
+  </body>
+</html>

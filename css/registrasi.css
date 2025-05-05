@@ -1,0 +1,166 @@
+:root {
+    --primary: #9dc08b;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+  }
+  body {
+    font-family: "Poppins", sans-serif;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-image: url(/img/bg_login.jpg); */
+    background-color: var(--primary);
+    background-position: center;
+    background-size: cover;
+    padding: 10px;
+  }
+  
+  .message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .registrasi-page .registrasi-box {
+    position: relative;
+    width: 450px;
+    height: 650px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    padding: 20px;
+  }
+  
+  .registrasi-page .registrasi-box header {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+  }
+  .registrasi-page .registrasi-box .input-box {
+    position: relative;
+    width: 310px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+  }
+  
+  .registrasi-page .registrasi-box .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  .registrasi-page .registrasi-box .input-box input:focus ~ label,
+  .registrasi-page .registrasi-box .input-box input:valid ~ label {
+    top: -5px;
+  }
+  
+  .registrasi-page .registrasi-box .input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    padding: 0 35px 0 5px;
+  }
+  
+  .registrasi-page .registrasi-box .input-box .icon {
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 57px;
+  }
+  
+  .registrasi-page .registrasi-box .input-box .btnView,
+  .registrasi-page .registrasi-box .input-box .btnViewPin {
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 57px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .pin-note {
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 25px;
+  }
+  
+  .registrasi-page .registrasi-box .btnRegistrasi {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #000;
+    font-weight: 500;
+    transition: 0.2s;
+  }
+  .registrasi-page .registrasi-box .btnRegistrasi:hover {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+  .registrasi-page .registrasi-box .login-link {
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+  }
+  .registrasi-page .registrasi-box .login-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .registrasi-page .registrasi-box .login-link p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 360px) {
+    .registrasi-page .registrasi-box header {
+      padding-top: 75px;
+    }
+    .registrasi-page .registrasi-box {
+      width: 100%;
+      height: 100vh;
+      /* height: 100vh; */
+      border: none;
+      border-radius: 0;
+      padding: none;
+    }
+  
+    .registrasi-page .registrasi-box .input-box {
+      width: 290px;
+    }
+  }
+  

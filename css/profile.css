@@ -1,0 +1,160 @@
+:root {
+    --primary: #9dc08b;
+    --darkGreen: #40513b;
+    --land: #795548;
+    --bg2: #edf1d6;
+    --bg: #f2f4f5;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .title {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--darkGreen);
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic img {
+    object-fit: cover;
+  }
+  
+  .profile-details {
+    text-align: center;
+  }
+  
+  .name {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--darkGreen);
+  }
+  
+  .email {
+    font-size: 18px;
+    color: var(--land);
+  }
+  
+  .bio {
+    font-size: 16px;
+    margin-top: 10px;
+    color: var(--land);
+  }
+  
+  .btn-edit {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-edit:hover {
+    background-color: var(--darkGreen);
+  }
+  
+  .additional-info {
+    width: 100%;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--darkGreen);
+    margin-bottom: 10px;
+  }
+  
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-list li {
+    font-size: 16px;
+    color: var(--land);
+    margin-bottom: 8px;
+  }
+  
+  .footer {
+    background-color: var(--darkGreen);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+  }
+  
+  .footer p {
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-container {
+      width: 100%;
+    }
+  
+    .profile-info {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .profile-pic img {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .name {
+      font-size: 24px;
+    }
+  
+    .bio {
+      font-size: 14px;
+    }
+  
+    .btn-edit {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+  

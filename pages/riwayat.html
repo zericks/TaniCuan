@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riwayat</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Box Icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="css/riwayat.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header><h1>HISTORY</h1></header>
+      <br />
+      <!-- Tampilan 1: Ringkasan Riwayat -->
+      <section id="ringkasan">
+        <!-- Filter Riwayat -->
+        <section id="filterRiwayat">
+          <label for="filterTahun">Tahun:</label>
+          <select id="filterTahun" onchange="filterRiwayat()">
+            <option value="">Semua</option>
+            <!-- Tahun akan diisi dengan JavaScript -->
+          </select>
+
+          <label for="filterStatus">Status:</label>
+          <select id="filterStatus" onchange="filterRiwayat()">
+            <option value="">Semua</option>
+            <option value="Sukses">Sukses</option>
+            <option value="Gagal">Gagal</option>
+          </select>
+
+          <!-- Tombol Hapus Semua -->
+          <i id="hapusRiwayat" class="bx bx-trash"></i>
+        </section>
+
+        <!-- Pesan jika tidak ada riwayat ditemukan -->
+        <p
+          id="pesanTidakDitemukan"
+          style="display: none; color: gray; text-align: center"
+        >
+          Riwayat tidak ditemukan
+        </p>
+
+        <!-- Pesan jika kosong -->
+        <p id="pesanKosong" style="display: none">Riwayat kosong</p>
+        <!-- <p id="pesanKosong">Riwayat kosong</p> -->
+
+        <div id="riwayatBox">
+          <!-- Riwayat akan dimuat secara otomatis dengan JavaScript -->
+          <!-- Contoh Riwayat start -->
+          <div class="riwayat-item" onclick="showDetail(1)">
+            <div class="details">
+              <h3>Padi</h3>
+              <p class="date">Mulai: 1 Maret 2025</p>
+              <p class="selisih">Selisih: Rp500.000</p>
+            </div>
+            <div class="status sukses">Berhasil</div>
+          </div>
+          <!-- Contoh Riwayat end -->
+          <!-- Contoh Riwayat start -->
+          <div class="riwayat-item" onclick="showDetail(2)">
+            <div class="details">
+              <h3>Jagung</h3>
+              <p class="date">Mulai: 15 Februari 2025</p>
+              <p class="selisih">Selisih: -Rp200.000</p>
+            </div>
+            <div class="status gagal">Gagal</div>
+          </div>
+          <!-- Contoh Riwayat end -->
+        </div>
+      </section>
+      <!-- Tampilan 1 End -->
+
+      <!-- Tampilan 2: Detail Riwayat -->
+      <section id="detailRiwayat" class="sesi-detail" style="display: none">
+        <button class="back-btn" onclick="kembaliKeRingkasan()">Back</button>
+        <h2>Detail Riwayat</h2>
+      
+        <section class="left">
+          <h3>Informasi Tanaman</h3>
+          <p><strong>Nama:</strong> <span id="riwayatNamaTanaman"></span></p>
+          <p><strong>Jenis:</strong> <span id="riwayatJenisTanaman"></span></p>
+          <p><strong>Tanggal Tanam:</strong> <span id="riwayatTanggalTanam"></span></p>
+          <p><strong>Estimasi Panen:</strong> <span id="riwayatEstimasiPanen"></span></p>
+          <p><strong>Status:</strong> <span id="riwayatStatus"></span></p>
+          <p><strong>Alasan Gagal:</strong> <span id="riwayatAlasanGagal"></span></p>
+        </section>
+      
+        <section class="right">
+          <h3>Keuangan</h3>
+          <p id="pesanKeuanganKosongRiwayat" style="text-align: center; display: none">
+            Tidak ada data keuangan
+          </p>
+      
+          <div class="tabel-container" style="display: block">
+            <table id="tabelKeuanganRiwayat">
+              <thead>
+                <tr>
+                  <th>Nama Transaksi</th>
+                  <th>Tanggal</th>
+                  <th>Tipe Transaksi</th>
+                  <th>Jumlah</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Diisi lewat JavaScript -->
+              </tbody>
+            </table>
+          </div>
+      
+          <br />
+          <h3>Ringkasan Keuangan</h3>
+          <div class="keuangan-summary">
+            <p><strong>Total Pemasukan:</strong> <span id="riwayatTotalPemasukan">0</span></p>
+            <p><strong>Total Pengeluaran:</strong> <span id="riwayatTotalPengeluaran">0</span></p>
+            <p><strong>Selisih:</strong> <span id="riwayatSelisih">0</span></p>
+          </div>
+        </section>
+      </section>
+      <!-- Tampilan 2 End -->
+    </div>
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- My Javascript -->
+    <script src="../js/riwayat.js"></script>
+  </body>
+</html>
